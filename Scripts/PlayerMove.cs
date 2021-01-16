@@ -5,11 +5,14 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public float speedX, speedZ, rotationSpeed;
+    public GameObject _camera;
     private Rigidbody rb;
+    private Vector3 VectorConst;
 
     void Start()
     {
     	rb = GetComponent<Rigidbody>();
+        VectorConst = _camera.transform.position;
     }
 
     void Update()
@@ -22,5 +25,6 @@ public class PlayerMove : MonoBehaviour
 
     	float rotY = Input.GetAxis("Mouse X") * rotationSpeed;
     	transform.Rotate(0f, rotY, 0f);
+        _camera.transform.position = transform.position + transform.TransformVector(VectorConst);
     }
 }
