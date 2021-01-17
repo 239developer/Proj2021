@@ -7,7 +7,7 @@ public class PlayerMove : MonoBehaviour
     public float speedX, speedZ, rotationSpeed;
     public GameObject _camera;
     private Rigidbody rb;
-    private Vector3 VectorConst;
+    private Vector3 VectorConst, velocity;
 
     public Vector3 TransformVector(Vector3 vector)
     {
@@ -23,11 +23,12 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-    	float vx = Input.GetAxis("Horizontal") * speedZ;
+    	float vx = Input.GetAxis("Horizontal") * speedX;
     	float vy = 0f;
-    	float vz = Input.GetAxis("Vertical") * speedX;
-    	Vector3 velocity = new Vector3(vx, vy, vz);
-    	rb.velocity = transform.TransformVector(velocity);
+    	float vz = Input.GetAxis("Vertical") * speedZ;
+    	rb.velocity -= new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+    	velocity = transform.TransformVector(vx, vy, vz);
+    	rb.velocity += velocity;
 
     	float rotY = Input.GetAxis("Mouse X") * rotationSpeed;
     	transform.Rotate(0f, rotY, 0f);
