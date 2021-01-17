@@ -15,7 +15,7 @@ public class CameraRotate : MonoBehaviour
 
     void Update()
     {
-        Vector3 rotConst = transform.TransformVector(rotationConst);
-        Quaternion rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(rotConst) * player.transform.rotation, rotationSpeed * Time.deltaTime);
+        Vector3 rotConst = player.GetComponent<PlayerMove>().TransformVector(rotationConst);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(rotConst) * player.transform.rotation, rotationSpeed * Time.deltaTime);
     }
 }

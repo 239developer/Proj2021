@@ -9,6 +9,12 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody rb;
     private Vector3 VectorConst;
 
+    public Vector3 TransformVector(Vector3 vector)
+    {
+    	Vector3 answer = transform.TransformVector(vector);
+    	return answer;
+    }
+
     void Start()
     {
     	rb = GetComponent<Rigidbody>();
