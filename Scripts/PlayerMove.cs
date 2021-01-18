@@ -43,4 +43,17 @@ public class PlayerMove : MonoBehaviour
     		Destroy(other.gameObject);
     	}
     }
+
+    void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "shop")
+        {
+            Stats.onShopTrigger = true;
+        }
+    }
+
+    void OnTriggerExit()
+    {
+        Stats.onShopTrigger = false;
+    }
 }
