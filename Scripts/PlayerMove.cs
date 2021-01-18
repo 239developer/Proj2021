@@ -31,7 +31,8 @@ public class PlayerMove : MonoBehaviour
     	rb.velocity += velocity;
 
     	float rotY = Input.GetAxis("Mouse X") * rotationSpeed;
-    	transform.Rotate(0f, rotY, 0f);
+        Vector3 rotation = new Vector3(0f, rotY, 0f) * Time.timeScale;
+    	transform.Rotate(rotation);
         _camera.transform.position = transform.position + transform.TransformVector(VectorConst);
     }
 
@@ -44,16 +45,19 @@ public class PlayerMove : MonoBehaviour
     	}
     }
 
+    void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "shop")
+        {
+            Stats.onShopTrigger = false;
+        }
+    }
+
     void OnTriggerStay(Collider other)
     {
         if(other.tag == "shop")
         {
             Stats.onShopTrigger = true;
         }
-    }
-
-    void OnTriggerExit()
-    {
-        Stats.onShopTrigger = false;
     }
 }

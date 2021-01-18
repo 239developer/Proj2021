@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class Stats : MonoBehaviour
 {
-    public static int money;
-    public static bool onShopTrigger;
+    public static int money = 0;
+    public static bool onShopTrigger = false;
 }
