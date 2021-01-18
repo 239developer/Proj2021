@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class CoinSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int count;
+    public GameObject coin;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        for(int i = 0; i < count; i++)
+        {
+        	Vector3 randomPos = new Vector3(Random.value * 1000 - 500, 0f, Random.value * 1000 - 500);
+        	GameObject coins = GameObject.Instantiate(coin, randomPos, Quaternion.Euler(0f, 0f, 0f));
+        }
     }
 }

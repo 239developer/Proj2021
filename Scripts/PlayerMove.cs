@@ -34,4 +34,13 @@ public class PlayerMove : MonoBehaviour
     	transform.Rotate(0f, rotY, 0f);
         _camera.transform.position = transform.position + transform.TransformVector(VectorConst);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+    	if(other.tag == "coin")
+    	{
+    		Stats.money++;
+    		Destroy(other.gameObject);
+    	}
+    }
 }
