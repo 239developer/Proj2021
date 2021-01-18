@@ -1,2 +1,5 @@
 # Project2021
- serg + pvl
+  Scenes:
+   0 - MainMenu
+   1 - Setting
+   2 - Game
