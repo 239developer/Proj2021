@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIweapon : MonoBehaviour
+public class AIweapon2 : MonoBehaviour
 {
 	public float speed = 3.0f; 
 	public float obstacleRange = 5.0f;
