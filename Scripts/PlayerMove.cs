@@ -30,7 +30,7 @@ public class PlayerMove : MonoBehaviour
     	float vx = Input.GetAxis("Horizontal") * speedX;   //x velocity
     	float vy = 0f;                                     //y velocity
     	float vz = Input.GetAxis("Vertical") * speedZ;     //z velocity
-        velocity = transform.TransformVector(vx, vy, vz);  //summary
+        velocity = transform.TransformVector(vx, vy, vz) * Stats.stats[0];  //summary
     	rb.velocity -= new Vector3(rb.velocity.x, 0f, rb.velocity.z);  //velocity(x & z) of this rigidbody is 0(but it can still move down)
     	rb.velocity += velocity;   //adding velocity to rb
 

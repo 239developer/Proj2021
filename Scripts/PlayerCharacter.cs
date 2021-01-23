@@ -2,10 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Stats;
 
 public class PlayerCharacter : MonoBehaviour
 {
     public Canvas[] ui;
+
+	void Start()
+	{
+		stats[0] = 1;
+	}
 
     void Update()
     {

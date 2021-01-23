@@ -7,4 +7,5 @@ public class Stats : MonoBehaviour
     public static int money = 0;
     public static bool onShopTrigger = false;
     public static byte currentState = 0; //default - 0, shop - 1
+    public static float[] stats = new float[shop.n];
 }

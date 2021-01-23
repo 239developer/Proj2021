@@ -7,11 +7,12 @@ public class DisplayStats : MonoBehaviour
 {
 	public byte typeOfDisplay;
 	public GameObject buttonEnterToShop;
-	public Text textDisplayMoney;
+	public Text textDisplayMoney1, textDisplayMoney2;
 
     void Update()
     {
-    	textDisplayMoney.text = "Money: " + Stats.money;
+    	textDisplayMoney1.text = "Money: " + Stats.money;
+		textDisplayMoney2.text = "Money: " + Stats.money;
     	buttonEnterToShop.SetActive(Stats.onShopTrigger);
     }
 }
