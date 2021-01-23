@@ -7,17 +7,11 @@ public class DisplayStats : MonoBehaviour
 {
 	public byte typeOfDisplay;
 	public GameObject buttonEnterToShop;
+	public Text textDisplayMoney;
 
     void Update()
     {
-    	switch(typeOfDisplay)
-    	{
-    		case 0:
-    			GetComponent<Text>().text = "Money: " + Stats.money;
-    			break;
-    		case 1:
-    			buttonEnterToShop.SetActive(Stats.onShopTrigger);
-    			break;
-    	}
+    	textDisplayMoney.text = "Money: " + Stats.money;
+    	buttonEnterToShop.SetActive(Stats.onShopTrigger);
     }
 }

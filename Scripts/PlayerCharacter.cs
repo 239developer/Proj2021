@@ -9,11 +9,23 @@ public class PlayerCharacter : MonoBehaviour
 
     void Update()
     {
-    	if(Stats.onShopTrigger && Input.GetKeyDown(KeyCode.E))
-    	{
-    		Stats.currentState = 1;
-    		Time.timeScale = 0f;
-    	}
+		if(Input.GetKeyDown(KeyCode.E))
+		{
+			switch(Stats.currentState)
+			{
+				case 0:
+					if(Stats.onShopTrigger)
+					{
+						Stats.currentState = 1;
+    					Time.timeScale = 0f;
+					}
+					break;
+				case 1:
+					Stats.currentState = 0;
+					Time.timeScale = 1f;
+					break;
+			}
+		}
 
     	foreach(Canvas c in ui) //Set active canvas
     	{

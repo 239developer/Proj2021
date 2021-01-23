@@ -31,7 +31,7 @@ public class PlayerMove : MonoBehaviour
     	float vy = 0f;                                     //y velocity
     	float vz = Input.GetAxis("Vertical") * speedZ;     //z velocity
         velocity = transform.TransformVector(vx, vy, vz);  //summary
-    	rb.velocity -= new Vector3(rb.velocity.x, 0f, rb.velocity.z);  //velocity of this rigidbody is 0(but it can still move down)
+    	rb.velocity -= new Vector3(rb.velocity.x, 0f, rb.velocity.z);  //velocity(x & z) of this rigidbody is 0(but it can still move down)
     	rb.velocity += velocity;   //adding velocity to rb
 
     	float rotY = Input.GetAxis("Mouse X") * rotationSpeed; //y rotation
