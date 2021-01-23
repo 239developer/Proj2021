@@ -14,4 +14,9 @@ public class Buttons : MonoBehaviour
     {
     	Application.Quit();
     }
+
+    public void BuySomething(int id)
+    {
+        GameObject.Find("Shop").GetComponent<shop>().Buy(id);
+    }
 }

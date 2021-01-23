@@ -6,27 +6,28 @@ using UnityEngine.UI;
 public class shop : MonoBehaviour
 {
     static public int n = 1;
-    public Text[] texts;
+    public Text[] buttonTexts, nameTexts;
     public int[] startPrices;
     public float[] factors;
     private List<item> items;
 
     public class item
     {
-        public Text namePrice;
+        public Text[] text;
         public string name = "unknown name";
         public int price;
         public float factor;
 
-        public item(Text np, int p, float f)
+        public item(Text[] txt, int p, float f)
         {
-            namePrice = np;
+            text = txt;
             price = p;
         }
 
-        public void DisplayPrice()
+        public void Display(int id)
         {
-            namePrice.text = name + ": " + price;
+            text[0].text = name + ": " + Stats.stats[id];
+            text[1].text = "Buy (" + price + ")";
         }
 
         public void Buy(int id)
@@ -36,13 +37,18 @@ public class shop : MonoBehaviour
         }
     }
 
+    public void Buy(int id)
+    {
+        items[id].Buy(id);
+    }
+
     void Start()
     {
         items = new List<item>();
 
         for(int i = 0; i < n; i++)
         {
-            var newItem = new item(texts[i], startPrices[i], factors[i]);
+            var newItem = new item(new Text[]{nameTexts[i], buttonTexts[i]}, startPrices[i], factors[i]);
             items.Add(newItem);
         }
 
@@ -51,9 +57,9 @@ public class shop : MonoBehaviour
 
     void Update()
     {
-        foreach (var i in items)
+        for(int i = 0; i < n; i++)
         {
-            i.DisplayPrice();     
+            items[i].Display(i);
         }
     }
 }
