@@ -1,18 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using static Stats;
 
 public class PlayerCharacter : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Canvas[] ui;
 
-    // Update is called once per frame
+	void Start()
+	{
+		stats[0] = 1;
+	}
+
     void Update()
     {
-        
+		if(Input.GetKeyDown(KeyCode.E))
+		{
+			switch(Stats.currentState)
+			{
+				case 0:
+					if(Stats.onShopTrigger)
+					{
+						Stats.currentState = 1;
+    					Time.timeScale = 0f;
+					}
+					break;
+				case 1:
+					Stats.currentState = 0;
+					Time.timeScale = 1f;
+					break;
+			}
+		}
+
+    	foreach(Canvas c in ui) //Set active canvas
+    	{
+    		c.gameObject.SetActive(false);
+    	}
+    	ui[Stats.currentState].gameObject.SetActive(true);
     }
 }
