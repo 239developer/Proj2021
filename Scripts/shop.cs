@@ -36,8 +36,8 @@ public class shop : MonoBehaviour
             if(Stats.money >= price)
             {
                 Stats.stats[id] += factor;
-                price += (int)(factor * 5);
                 Stats.money -= price;
+                price += (int)(factor * 5);
             }
         }
     }
