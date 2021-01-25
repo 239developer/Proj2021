@@ -17,6 +17,6 @@ public class Buttons : MonoBehaviour
 
     public void BuySomething(int id)
     {
-        GameObject.Find("Shop").GetComponent<shop>().Buy(id);
+        GameObject.Find("Shop").GetComponent<shop>().items[id].Buy(id);
     }
 }

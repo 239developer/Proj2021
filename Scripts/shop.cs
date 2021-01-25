@@ -9,7 +9,7 @@ public class shop : MonoBehaviour
     public Text[] buttonTexts, nameTexts;
     public int[] startPrices;
     public float[] factors;
-    private List<item> items;
+    public List<item> items;
 
     public class item
     {
@@ -22,6 +22,7 @@ public class shop : MonoBehaviour
         {
             text = txt;
             price = p;
+            factor = f;
         }
 
         public void Display(int id)
@@ -32,14 +33,13 @@ public class shop : MonoBehaviour
 
         public void Buy(int id)
         {
-            Stats.stats[id] += factor;
-            price *= 2;
+            if(Stats.money >= price)
+            {
+                Stats.stats[id] += factor;
+                price += (int)(factor * 5);
+                Stats.money -= price;
+            }
         }
-    }
-
-    public void Buy(int id)
-    {
-        items[id].Buy(id);
     }
 
     void Start()
