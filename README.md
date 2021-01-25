@@ -5,3 +5,4 @@
     2 - Game
 #  Tags:
     coin
+    shop
