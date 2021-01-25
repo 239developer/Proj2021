@@ -8,7 +8,6 @@ public class knife : MonoBehaviour
 	public int damage = 1;
 	void Update() {
 		transform.Translate(0, 0, speed * Time.deltaTime);	
-		transform.Rotate(0, speed * Time.deltaTime, 0, Space.Self);
 	}
 
 }
