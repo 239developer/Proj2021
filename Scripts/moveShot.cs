@@ -8,6 +8,14 @@ public class moveShot : MonoBehaviour
 
     void Update()
     {
-    	transform.Translate(movement * Time.deltaTime);
+        transform.Translate(movement * Time.deltaTime);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag != "Player" && other.isTrigger == false)
+        {
+            Destroy(gameObject);
+        }
     }
 }

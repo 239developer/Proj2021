@@ -37,7 +37,7 @@ public class shop : MonoBehaviour
             {
                 Stats.stats[id] += factor;
                 Stats.money -= price;
-                price += (int)(factor * 5);
+                price += 1;
             }
         }
     }
