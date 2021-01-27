@@ -13,9 +13,14 @@ public class moveShot : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag != "Player" && other.isTrigger == false)
+        ReactiveTarget enemy = other.GetComponent<ReactiveTarget>();
+	if(other.tag != "Player" && other.isTrigger == false && enemy == null)
         {
             Destroy(gameObject);
         }
+	if (enemy != null) {
+		enemy.ReactToHit();
+		Destroy(gameObject);
+	}
     }
 }

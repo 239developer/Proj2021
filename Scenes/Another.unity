@@ -856,6 +856,7 @@ GameObject:
   - component: {fileID: 1200309729}
   - component: {fileID: 1200309728}
   - component: {fileID: 1200309727}
+  - component: {fileID: 1200309734}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -875,6 +876,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34eea72ebbf5a5e4dbc62daf02c967f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ui: []
+  healtBar: {fileID: 0}
+  health: 5
 --- !u!114 &1200309728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -983,6 +987,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1200309734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200309726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e37c3e137ee74540b40a0b4eb1b1f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  arrow: {fileID: 2111377071848672050, guid: b9611d1cb638f3a45b071755f3a1edc5, type: 3}
+  arrowSpeed: 15
 --- !u!1 &1537324778
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,6 +1445,7 @@ GameObject:
   - component: {fileID: 1839551009}
   - component: {fileID: 1839551008}
   - component: {fileID: 1839551007}
+  - component: {fileID: 1839551012}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1523,6 +1543,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1839551012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839551006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9bcfc856df431e429d62cf65d8a4634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2003228551
 GameObject:
   m_ObjectHideFlags: 0
