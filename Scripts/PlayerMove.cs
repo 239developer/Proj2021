@@ -22,6 +22,7 @@ public class PlayerMove : MonoBehaviour
     {
     	rb = GetComponent<Rigidbody>();
         VectorConst = _camera.transform.position;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     /*--- movement ---*/
