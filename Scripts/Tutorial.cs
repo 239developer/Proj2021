@@ -42,7 +42,10 @@ public class Tutorial : MonoBehaviour
                     break;
                 case 2:
                     if(Time.time - lastAction > 1f && counter == 2)
+                    {
+                        Stats.currentQuest++;
                         Buttons.LoadScene(2);
+                    }
                     break;
             }
         }

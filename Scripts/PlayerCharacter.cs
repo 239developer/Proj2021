@@ -6,7 +6,7 @@ using static Stats;
 
 public class PlayerCharacter : MonoBehaviour
 {
-    public Canvas[] ui;
+    public Canvas[] ui, questDescription;
     public Slider healtBar;
     public int health = 5;
 
@@ -18,24 +18,24 @@ public class PlayerCharacter : MonoBehaviour
 
     void Update()
     {
-        switch(Stats.currentState)
+        switch(currentState)
         {
            case 0:
-               switch(Stats.onTrigger)
+               switch(onTrigger)
                {
                    case 0:
-                        Stats.currentState = 0;
+                        currentState = 0;
                         Time.timeScale = 1f;
                         break;
                    case 1:
                        if(Input.GetKeyDown(KeyCode.E))
                        {
-                           Stats.currentState = 1;
+                           currentState = 1;
                            Time.timeScale = 0f;
                        }
                        break;
                    case 2:
-                       Stats.currentState = 2;
+                       currentState = 2;
                        Time.timeScale = 0.9f;
                        break;
                }
@@ -43,18 +43,18 @@ public class PlayerCharacter : MonoBehaviour
            case 1:
                if(Input.GetKeyDown(KeyCode.E))
                {
-                   Stats.currentState = 0;
+                   currentState = 0;
                    Time.timeScale = 1f;
                }
                break;
             case 2:
-                if(Stats.onTrigger == 0)
+                if(onTrigger == 0)
                 {
-                    Stats.currentState = 0;
+                    currentState = 0;
                     Time.timeScale = 1f;
                 }
                 else if(Input.GetKeyDown(KeyCode.E))
-                    Buttons.LoadScene(Stats.Quest_id[0]);
+                    Buttons.LoadScene(Quest_id[currentQuest]);
                 break;
         }
 
@@ -62,7 +62,10 @@ public class PlayerCharacter : MonoBehaviour
         {
            c.gameObject.SetActive(false);
         }
-        ui[Stats.currentState].gameObject.SetActive(true);
+        if(currentState != 2)
+            ui[currentState].gameObject.SetActive(true);
+        else
+            questDescription[currentQuest].SetActive(true);
 
         healtBar.value = health;
     }
@@ -74,7 +77,7 @@ public class PlayerCharacter : MonoBehaviour
             if(health > 0)
                 health--;
             else
-                Stats.currentState = 3;
+                currentState = 3;
         }
     }
 }
