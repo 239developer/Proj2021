@@ -18,23 +18,45 @@ public class PlayerCharacter : MonoBehaviour
 
     void Update()
     {
-       if(Input.GetKeyDown(KeyCode.E))
-       {
-         switch(Stats.currentState)
-         {
-            case 0:
-                if(Stats.onShopTrigger)
+        switch(Stats.currentState)
+        {
+           case 0:
+               switch(Stats.onTrigger)
+               {
+                   case 0:
+                        Stats.currentState = 0;
+                        Time.timeScale = 1f;
+                        break;
+                   case 1:
+                       if(Input.GetKeyDown(KeyCode.E))
+                       {
+                           Stats.currentState = 1;
+                           Time.timeScale = 0f;
+                       }
+                       break;
+                   case 2:
+                       Stats.currentState = 2;
+                       Time.timeScale = 0.9f;
+                       break;
+               }
+               break;
+           case 1:
+               if(Input.GetKeyDown(KeyCode.E))
+               {
+                   Stats.currentState = 0;
+                   Time.timeScale = 1f;
+               }
+               break;
+            case 2:
+                if(Stats.onTrigger == 0)
                 {
-                    Stats.currentState = 1;
-                    Time.timeScale = 0f;
+                    Stats.currentState = 0;
+                    Time.timeScale = 1f;
                 }
+                else if(Input.GetKeyDown(KeyCode.E))
+                    Buttons.LoadScene(Stats.Quest_id[0]);
                 break;
-            case 1:
-                Stats.currentState = 0;
-                Time.timeScale = 1f;
-                break;
-         }
-       }
+        }
 
         foreach(Canvas c in ui) //Set active canvas
         {

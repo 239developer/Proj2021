@@ -13,6 +13,6 @@ public class DisplayStats : MonoBehaviour
     {
     	textDisplayMoney1.text = "Money: " + Stats.money;
 		textDisplayMoney2.text = "Money: " + Stats.money;
-    	buttonEnterToShop.SetActive(Stats.onShopTrigger);
+    	buttonEnterToShop.SetActive(Stats.onTrigger == 1 || Stats.onTrigger == 2);
     }
 }

@@ -59,17 +59,15 @@ public class PlayerMove : MonoBehaviour
     /*--- can you enter to shop? ---*/
     void OnTriggerExit(Collider other)
     {
-        if(other.tag == "shop")
-        {
-            Stats.onShopTrigger = false;
-        }
+        if(other.tag == "shop" || other.tag == "newTask")
+            Stats.onTrigger = 0;
     }
 
     void OnTriggerStay(Collider other)
     {
         if(other.tag == "shop")
-        {
-            Stats.onShopTrigger = true;
-        }
+            Stats.onTrigger = 1;
+        else if(other.tag == "newTask")
+            Stats.onTrigger = 2;
     }
 }

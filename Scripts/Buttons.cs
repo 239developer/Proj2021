@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Buttons : MonoBehaviour
 {
+    public static void LoadScene(int scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
+
     public void ChangeScene(int scene)
     {
-    	SceneManager.LoadScene(scene);
+    	LoadScene(scene);
     }
 
     public void QuitGame()
