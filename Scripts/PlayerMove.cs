@@ -69,5 +69,7 @@ public class PlayerMove : MonoBehaviour
             Stats.onTrigger = 1;
         else if(other.tag == "newTask")
             Stats.onTrigger = 2;
+        else
+            Stats.onTrigger = 0;
     }
 }
