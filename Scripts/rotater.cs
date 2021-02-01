@@ -7,6 +7,7 @@ public class rotater : MonoBehaviour
     public bool x, y, z;
     public float rotationSpeed;
     private float sX = 0f, sY = 0f, sZ = 0f;
+    private Vector3 rotation;
 
     void Start()
     {
@@ -16,10 +17,11 @@ public class rotater : MonoBehaviour
             sY = rotationSpeed;
         if(y)
             sY = rotationSpeed;
+        rotation = new Vector3(sX, sY, sZ);
     }
 
     void Update()
     {
-        transform.Rotate(sX, sY, sZ);
+        transform.Rotate(rotation * Time.deltaTime);
     }
 }
