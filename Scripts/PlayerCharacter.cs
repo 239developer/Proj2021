@@ -6,7 +6,7 @@ using static Stats;
 
 public class PlayerCharacter : MonoBehaviour
 {
-    public Canvas[] ui, questDescription;
+    public Canvas[] ui, questCanvases;
     public Slider healtBar;
     public int health = 5;
 
@@ -14,6 +14,9 @@ public class PlayerCharacter : MonoBehaviour
     {
        stats[0] = 1;
        healtBar.maxValue = health;
+       Canvas canvas;
+       canvas = GameObject.Instantiate(questCanvases[currentQuest]);
+       ui[2] = canvas;
     }
 
     void Update()
@@ -62,10 +65,7 @@ public class PlayerCharacter : MonoBehaviour
         {
            c.gameObject.SetActive(false);
         }
-        if(currentState != 2)
-            ui[currentState].gameObject.SetActive(true);
-        else
-            questDescription[currentQuest].SetActive(true);
+        ui[currentState].gameObject.SetActive(true);
 
         healtBar.value = health;
     }
