@@ -8,7 +8,7 @@ public class PlayerMove : MonoBehaviour
     public float speedX, speedZ, rotationSpeed;
     public GameObject _camera;
     private Rigidbody rb;
-    private Vector3 VectorConst, velocity;
+    private Vector3 VectorConst = new Vector3(0f, 5.29f, -6.47f), velocity;
 
     /*--- function used for camera rotation ---*/
     public Vector3 TransformVector(Vector3 vector)
@@ -20,6 +20,7 @@ public class PlayerMove : MonoBehaviour
     /*--- start ---*/
     void Start()
     {
+        Stats.currentState = 0;
         rb = GetComponent<Rigidbody>();
         VectorConst = _camera.transform.position;
     }
@@ -59,7 +60,7 @@ public class PlayerMove : MonoBehaviour
     /*--- can you enter to shop? ---*/
     void OnTriggerExit(Collider other)
     {
-        if(other.tag == "shop" || other.tag == "newTask")
+        if(other.tag == "shop" || other.tag == "newTask" || other.tag == "endOfQuest")
             Stats.onTrigger = 0;
     }
 
@@ -69,6 +70,8 @@ public class PlayerMove : MonoBehaviour
             Stats.onTrigger = 1;
         else if(other.tag == "newTask")
             Stats.onTrigger = 2;
+        else if(other.tag == "endOfQuest")
+            Stats.onTrigger = 4;
         else
             Stats.onTrigger = 0;
     }
