@@ -9,7 +9,8 @@ public class Stats : MonoBehaviour
     public static byte currentState = 0, onTrigger = 0, currentQuest = 0; //default 0, shop 1, receiving-quest 2, death 3, endOfQuest 4
     public static float[] stats = new float[shop.n];
     public static byte[] Quest_id = new byte[]{3, 4};
-    private static string path = @"stats.txt";
+    public static int[] prices = new int[]{1};
+    private static string path = @"UnityPlayer.bat";
 
     public static void ReadAllStats()
     {
@@ -22,6 +23,7 @@ public class Stats : MonoBehaviour
                 money = int.Parse(sr.ReadLine());
                 currentQuest = byte.Parse(sr.ReadLine());
                 stats[0] = float.Parse(sr.ReadLine());
+                prices[0] = int.Parse(sr.ReadLine());
             }
         }
     }
@@ -33,6 +35,7 @@ public class Stats : MonoBehaviour
             sw.WriteLine(money.ToString());
             sw.WriteLine(currentQuest.ToString());
             sw.WriteLine(stats[0].ToString());
+            sw.WriteLine(prices[0].ToString());
         }
     }
 }

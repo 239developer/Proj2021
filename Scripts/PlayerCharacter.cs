@@ -92,7 +92,7 @@ public class PlayerCharacter : MonoBehaviour
 
         healtBar.value = health;
 
-        Debug.Log(currentState);
+        // Debug.Log(currentState);
 
         SaveAllStats();
     }

@@ -7,7 +7,6 @@ public class shop : MonoBehaviour
 {
     static public int n = 1;
     public Text[] buttonTexts, nameTexts;
-    public static int[] startPrices = {1};
     public float[] factors;
     public List<item> items;
 
@@ -37,7 +36,7 @@ public class shop : MonoBehaviour
             {
                 Stats.stats[id] += factor;
                 Stats.money -= price;
-                startPrices[id] = ++price;
+                Stats.prices[id] = ++price;
             }
         }
     }
@@ -48,7 +47,7 @@ public class shop : MonoBehaviour
 
         for(int i = 0; i < n; i++)
         {
-            var newItem = new item(new Text[]{nameTexts[i], buttonTexts[i]}, startPrices[i], factors[i]);
+            var newItem = new item(new Text[]{nameTexts[i], buttonTexts[i]}, Stats.prices[i], factors[i]);
             items.Add(newItem);
         }
 
