@@ -91,6 +91,8 @@ public class PlayerCharacter : MonoBehaviour
         ui[currentState].gameObject.SetActive(true);
 
         healtBar.value = health;
+
+        Debug.Log(currentState);
     }
 
     void OnTriggerEnter(Collider other)

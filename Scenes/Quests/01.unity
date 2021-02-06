@@ -727,7 +727,7 @@ MonoBehaviour:
   questCanvases:
   - {fileID: 0}
   - {fileID: 0}
-  endOfTask: {fileID: 9089975341788974037, guid: 12756c6b911f0854297b969672c63f8a, type: 3}
+  endOfTask: {fileID: 9089975341788974037, guid: a35e326212ef8804487b8df6cc23f4a3, type: 3}
   healtBar: {fileID: 845634482}
   health: 5
 --- !u!114 &457057731

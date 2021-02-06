@@ -20,13 +20,14 @@ public class PlayerMove : MonoBehaviour
     /*--- start ---*/
     void Start()
     {
+        Stats.onTrigger = 0;
         Stats.currentState = 0;
         rb = GetComponent<Rigidbody>();
         VectorConst = _camera.transform.position;
     }
 
     /*--- movement ---*/
-    void Update()
+    void FixedUpdate()
     {
         float vx = Input.GetAxis("Horizontal") * speedX;   //x velocity
         float vy = 0f;                                     //y velocity
@@ -34,17 +35,19 @@ public class PlayerMove : MonoBehaviour
         velocity = transform.TransformVector(vx, vy, vz) * Stats.stats[0];  //summary
         rb.velocity -= new Vector3(rb.velocity.x, 0f, rb.velocity.z);  //velocity(x & z) of this rigidbody is 0(but it can still move down)
         rb.velocity += velocity;   //adding velocity to rb
+    }
+
+    void Update()
+    {
+        if(Stats.currentState == 0)
+            Cursor.lockState = CursorLockMode.Locked;
+        else
+            Cursor.lockState = CursorLockMode.None;
 
         float rotY = Input.GetAxis("Mouse X") * rotationSpeed; //y rotation
         Vector3 rotation = new Vector3(0f, rotY, 0f) * Time.timeScale;
         transform.Rotate(rotation);
         _camera.transform.position = transform.position + transform.TransformVector(VectorConst);   //move camera to rotaion
-        
-        byte s = Stats.currentState;
-        if(s == 0)
-            Cursor.lockState = CursorLockMode.Locked;
-        else
-            Cursor.lockState = CursorLockMode.None;
     }
 
     /*--- have you grab coin? ---*/

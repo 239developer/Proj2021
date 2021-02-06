@@ -7,7 +7,7 @@ public class shop : MonoBehaviour
 {
     static public int n = 1;
     public Text[] buttonTexts, nameTexts;
-    public int[] startPrices;
+    public static int[] startPrices = {1};
     public float[] factors;
     public List<item> items;
 
@@ -37,7 +37,7 @@ public class shop : MonoBehaviour
             {
                 Stats.stats[id] += factor;
                 Stats.money -= price;
-                price += 1;
+                startPrices[id] = ++price;
             }
         }
     }

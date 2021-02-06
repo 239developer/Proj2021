@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You need money: 25'
+  m_Text: 'You nedd money: 5'
 --- !u!1 &9089975341560077842
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 9089975341788974039}
   - component: {fileID: 9089975341788974038}
   m_Layer: 5
-  m_Name: endOfTaskCanvas01
+  m_Name: endOfTask01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
