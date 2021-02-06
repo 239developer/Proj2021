@@ -25,6 +25,12 @@ public class Buttons : MonoBehaviour
         GameObject.Find("Shop").GetComponent<shop>().items[id].Buy(id);
     }
 
+    void Start()
+    {
+        Stats.ReadAllStats();
+        Debug.Log("Read");
+    }
+
     void Update()
     {
         if(Input.GetKey(KeyCode.Escape))

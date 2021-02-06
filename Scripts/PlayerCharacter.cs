@@ -93,6 +93,8 @@ public class PlayerCharacter : MonoBehaviour
         healtBar.value = health;
 
         Debug.Log(currentState);
+
+        SaveAllStats();
     }
 
     void OnTriggerEnter(Collider other)
