@@ -9,10 +9,10 @@ public class DisplayStats : MonoBehaviour
 	public GameObject buttonEnterToShop;
 	public Text textDisplayMoney1, textDisplayMoney2;
 
-    void Update()
-    {
-    	textDisplayMoney1.text = "Money: " + Stats.money;
+	void Update()
+	{
+		textDisplayMoney1.text = "Money: " + Stats.money;
 		textDisplayMoney2.text = "Money: " + Stats.money;
-    	buttonEnterToShop.SetActive(Stats.onTrigger == 1 || Stats.onTrigger == 2);
-    }
+		buttonEnterToShop.SetActive(Stats.onTrigger == 1 || Stats.onTrigger == 2);
+	}
 }

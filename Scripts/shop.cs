@@ -32,7 +32,7 @@ public class shop : MonoBehaviour
 
         public void Buy(int id)
         {
-            if(Stats.money >= price)
+            if (Stats.money >= price)
             {
                 Stats.stats[id] += factor;
                 Stats.money -= price;
@@ -45,9 +45,9 @@ public class shop : MonoBehaviour
     {
         items = new List<item>();
 
-        for(int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++)
         {
-            var newItem = new item(new Text[]{nameTexts[i], buttonTexts[i]}, Stats.prices[i], factors[i]);
+            var newItem = new item(new Text[] {nameTexts[i], buttonTexts[i]}, Stats.prices[i], factors[i]);
             items.Add(newItem);
         }
 
@@ -56,7 +56,7 @@ public class shop : MonoBehaviour
 
     void Update()
     {
-        for(int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++)
         {
             items[i].Display(i);
         }

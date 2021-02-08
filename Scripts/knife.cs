@@ -11,9 +11,9 @@ public class knife : MonoBehaviour
 	void Update() {
 		transform.Translate(0, 0, speed * Time.deltaTime);
 		a = a + 1;
-		if(a == maxa){
+		if (a == maxa) {
 			Destroy(this.gameObject);
-		}	
+		}
 	}
 
 }

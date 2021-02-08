@@ -10,8 +10,8 @@ public class Tutorial : MonoBehaviour
 
     void SwitchArray(GameObject[] array, bool state)
     {
-        for(int i = 0; i < array.Length; i++)
-            if(array[i] != null)
+        for (int i = 0; i < array.Length; i++)
+            if (array[i] != null)
                 array[i].SetActive(state);
     }
 
@@ -24,29 +24,29 @@ public class Tutorial : MonoBehaviour
 
     void Update()
     {
-        if(Time.time - lastAction > 0.5f && Input.GetKeyDown(KeyCode.E))
+        if (Time.time - lastAction > 0.5f && Input.GetKeyDown(KeyCode.E))
         {
-            switch(counter)
+            switch (counter)
             {
-                case 0:
-                    SwitchArray(text1, false);
-                    SwitchArray(obj1, true);
-                    counter++;
-                    lastAction = Time.time;
-                    break;
-                case 1:
-                    SwitchArray(obj1, false);
-                    SwitchArray(text2, true);
-                    counter++;
-                    lastAction = Time.time;
-                    break;
-                case 2:
-                    if(Time.time - lastAction > 1f && counter == 2)
-                    {
-                        Stats.currentQuest++;
-                        Buttons.LoadScene(2);
-                    }
-                    break;
+            case 0:
+                SwitchArray(text1, false);
+                SwitchArray(obj1, true);
+                counter++;
+                lastAction = Time.time;
+                break;
+            case 1:
+                SwitchArray(obj1, false);
+                SwitchArray(text2, true);
+                counter++;
+                lastAction = Time.time;
+                break;
+            case 2:
+                if (Time.time - lastAction > 1f && counter == 2)
+                {
+                    Stats.currentQuest++;
+                    Buttons.LoadScene(2);
+                }
+                break;
             }
         }
     }

@@ -90,8 +90,10 @@ public class PlayerCharacter : MonoBehaviour
 
     healtBar.value = health;
 
-    if(Input.GetKey(KeyCode.Escape))    //exit to menu
+    if (Input.GetKey(KeyCode.Escape))   //exit to menu
     {
+      Cursor.lockState = CursorLockMode.None;
+      Cursor.visible = true;
       Stats.SavePlayerPos(gameObject);
       SaveAllStats();
       Buttons.LoadScene(0);

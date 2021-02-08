@@ -11,11 +11,11 @@ public class rotater : MonoBehaviour
 
     void Start()
     {
-        if(x)
+        if (x)
             sX = rotationSpeed;
-        if(y)
+        if (y)
             sY = rotationSpeed;
-        if(y)
+        if (y)
             sY = rotationSpeed;
         rotation = new Vector3(sX, sY, sZ);
     }

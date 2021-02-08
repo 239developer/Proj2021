@@ -40,10 +40,16 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        if(Stats.currentState == 0)
+        if (Stats.currentState == 0)
+        {
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
         else
+        {
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
 
         float rotY = Input.GetAxis("Mouse X") * rotationSpeed; //y rotation
         Vector3 rotation = new Vector3(0f, rotY, 0f) * Time.timeScale;
@@ -54,7 +60,7 @@ public class PlayerMove : MonoBehaviour
     /*--- have you grab coin? ---*/
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "coin")
+        if (other.tag == "coin")
         {
             Stats.money++;
             Destroy(other.gameObject);
@@ -64,17 +70,17 @@ public class PlayerMove : MonoBehaviour
     /*--- can you enter to shop? ---*/
     void OnTriggerExit(Collider other)
     {
-        if(other.tag == "shop" || other.tag == "newTask" || other.tag == "endOfQuest")
+        if (other.tag == "shop" || other.tag == "newTask" || other.tag == "endOfQuest")
             Stats.onTrigger = 0;
     }
 
     void OnTriggerStay(Collider other)
     {
-        if(other.tag == "shop")
+        if (other.tag == "shop")
             Stats.onTrigger = 1;
-        else if(other.tag == "newTask")
+        else if (other.tag == "newTask")
             Stats.onTrigger = 2;
-        else if(other.tag == "endOfQuest")
+        else if (other.tag == "endOfQuest")
             Stats.onTrigger = 4;
         else
             Stats.onTrigger = 0;

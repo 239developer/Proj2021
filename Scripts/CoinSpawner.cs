@@ -9,10 +9,10 @@ public class CoinSpawner : MonoBehaviour
 
     void Start()
     {
-        for(int i = 0; i < count; i++)
+        for (int i = 0; i < count; i++)
         {
-        	Vector3 randomPos = new Vector3(Random.value * 1000 - 500, 0f, Random.value * 1000 - 500);
-        	GameObject coins = GameObject.Instantiate(coin, randomPos, Quaternion.Euler(0f, 0f, 0f));
+            Vector3 randomPos = new Vector3(Random.value * 1000 - 500, 0f, Random.value * 1000 - 500);
+            GameObject coins = GameObject.Instantiate(coin, randomPos, Quaternion.Euler(0f, 0f, 0f));
         }
     }
 }

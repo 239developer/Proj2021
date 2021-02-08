@@ -8,23 +8,23 @@ public class Stats : MonoBehaviour
     public static int money = 0, Q01price = 5;
     public static byte currentState = 0, onTrigger = 0, currentQuest = 0; //default 0, shop 1, receiving-quest 2, death 3, endOfQuest 4
     public static float[] stats = new float[shop.n];
-    public static byte[] Quest_id = new byte[]{3, 4};
-    public static int[] prices = new int[]{1};
+    public static byte[] Quest_id = new byte[] {3, 4};
+    public static int[] prices = new int[] {1};
     private static string stats_path = @"stats", scene_path = @"game_scene";
 
     public static void ReadPlayerPos(GameObject player)
     {
-        if(!File.Exists(scene_path))
+        if (!File.Exists(scene_path))
             File.Create(scene_path);
         else
             using(StreamReader sr = File.OpenText(scene_path))
-            {
-                float x = float.Parse(sr.ReadLine());
-                float y = float.Parse(sr.ReadLine());
-                float z = float.Parse(sr.ReadLine());
-                player.transform.position = new Vector3(x, y, z);
-                sr.Close();
-            }
+        {
+            float x = float.Parse(sr.ReadLine());
+            float y = float.Parse(sr.ReadLine());
+            float z = float.Parse(sr.ReadLine());
+            player.transform.position = new Vector3(x, y, z);
+            sr.Close();
+        }
     }
 
     public static void SavePlayerPos(GameObject player)
@@ -40,7 +40,7 @@ public class Stats : MonoBehaviour
 
     public static void ReadAllStats()
     {
-        if(!File.Exists(stats_path))
+        if (!File.Exists(stats_path))
             File.Create(stats_path);
         else
         {

@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour
     void Display()
     {
         float r = (Time.time - lastShotTime) * arrowShootingSpeed;
-        if(r < 1)
+        if (r < 1)
             reloading.value = r;
         else
             reloading.value = 1;
