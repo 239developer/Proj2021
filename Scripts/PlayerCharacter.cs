@@ -67,7 +67,10 @@ public class PlayerCharacter : MonoBehaviour
         Time.timeScale = 1f;
       }
       else if (Input.GetKeyDown(KeyCode.E))
+      {
+        Stats.SavePlayerPos(gameObject);
         Buttons.LoadScene(Quest_id[currentQuest]);
+      }
       break;
     case 4:
       if (money >= Q01price && currentQuest == 1)
