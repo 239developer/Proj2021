@@ -20,6 +20,7 @@ public class PlayerMove : MonoBehaviour
     /*--- start ---*/
     void Start()
     {
+        Stats.ReadPlayerPos(gameObject);
         Stats.onTrigger = 0;
         Stats.currentState = 0;
         rb = GetComponent<Rigidbody>();

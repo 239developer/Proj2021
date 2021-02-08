@@ -12,12 +12,12 @@ public class Buttons : MonoBehaviour
 
     public void ChangeScene(int scene)
     {
-    	LoadScene(scene);
+        LoadScene(scene);
     }
 
     public void QuitGame()
     {
-    	Application.Quit();
+        Application.Quit();
     }
 
     public void BuySomething(int id)
@@ -28,12 +28,5 @@ public class Buttons : MonoBehaviour
     void Start()
     {
         Stats.ReadAllStats();
-        Debug.Log("Read");
-    }
-
-    void Update()
-    {
-        if(Input.GetKey(KeyCode.Escape))
-            ChangeScene(0);
     }
 }
