@@ -7,6 +7,7 @@ public class Buttons : MonoBehaviour
 {
     public static void LoadScene(int scene)
     {
+        Stats.currentScene = (byte)scene;
         SceneManager.LoadScene(scene);
     }
 

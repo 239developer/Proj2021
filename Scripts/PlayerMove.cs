@@ -20,7 +20,8 @@ public class PlayerMove : MonoBehaviour
     /*--- start ---*/
     void Start()
     {
-        Stats.ReadPlayerPos(gameObject);
+        if (Stats.currentScene == 2)
+            Stats.ReadPlayerPos(gameObject);
         Stats.onTrigger = 0;
         Stats.currentState = 0;
         rb = GetComponent<Rigidbody>();
@@ -76,6 +77,7 @@ public class PlayerMove : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
+        Quests.col = other;
         if (other.tag == "shop")
             Stats.onTrigger = 1;
         else if (other.tag == "newTask")

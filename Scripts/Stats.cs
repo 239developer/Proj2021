@@ -6,11 +6,11 @@ using System.IO;
 public class Stats : MonoBehaviour
 {
     public static int money = 0, Q01price = 5;
-    public static byte currentState = 0, onTrigger = 0, currentQuest = 0; //default 0, shop 1, receiving-quest 2, death 3, endOfQuest 4
+    public static byte currentState = 0, onTrigger = 0, currentQuest = 0, subQuest02 = 1, currentScene = 0; //default 0, shop 1, receiving-quest 2, death 3, endOfQuest 4
     public static float[] stats = new float[shop.n];
-    public static byte[] Quest_id = new byte[] {3, 4};
+    public static byte[] Quest_id = new byte[] {3, 4, 5};
     public static int[] prices = new int[] {1};
-    private static string stats_path = @"stats", scene_path = @"game_scene";
+    private static string stats_path = @"stats.txt", scene_path = @"game_scene.txt";
 
     public static void ReadPlayerPos(GameObject player)
     {

@@ -27,6 +27,9 @@ public class PlayerCharacter : MonoBehaviour
 
   void Update()
   {
+    if (currentScene > 2)
+      Quests.OnQuest();
+
     switch (currentState)
     {
     case 0:
@@ -68,15 +71,15 @@ public class PlayerCharacter : MonoBehaviour
       }
       else if (Input.GetKeyDown(KeyCode.E))
       {
-        Stats.SavePlayerPos(gameObject);
+        if (Stats.currentScene == 2)
+          Stats.SavePlayerPos(gameObject);
         Buttons.LoadScene(Quest_id[currentQuest]);
       }
       break;
     case 4:
-      if (money >= Q01price && currentQuest == 1)
-      {
-        Buttons.LoadScene(2);
-      }
+      if (currentQuest >= 1)
+        Quests.OnQuest();
+
       if (onTrigger == 0)
       {
         currentState = 0;
@@ -97,7 +100,8 @@ public class PlayerCharacter : MonoBehaviour
     {
       Cursor.lockState = CursorLockMode.None;
       Cursor.visible = true;
-      Stats.SavePlayerPos(gameObject);
+      if (Stats.currentScene == 2)
+        Stats.SavePlayerPos(gameObject);
       SaveAllStats();
       Buttons.LoadScene(0);
     }
